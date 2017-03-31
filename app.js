@@ -9,24 +9,46 @@ $(document).ready(function (){
 	var name = $("#inputName").val();
 	var firstname = $("#inputFirstName").val();
 	var age = $("#inputAge").val();
+	var buttDel = "<button id='delete'>del</button>";
 	var identity = {"name": name, "firstname":firstname, "age": age};
 	annuaire.push(identity);
-	$("input").val("");
-	//$("tbody").append($("<tr><td>"+name+"</td><td>"+firstname+"</td><td>"+age+"</td><td><button id='delete'>supprimer</button></td></tr>"));		
+	console.log(annuaire);
+	$("input").val("");		
 	$("#dataTable").DataTable().row.add([
 		name,
 		firstname,
-		age
+		age,
+		buttDel
 		]).draw(false);
 	})
-	$("#enter").click();
 });
-	
-$("tbody").delegate("#delete","click",function(){
+$(document).ready(function(){
+	$("#dataTable").on("click","button",function(){
+		$("#dataTable").DataTable()
+			.row($(this).parent().parent("tr"))
+			.remove()
+			.draw();		
+		annuaire.splice($(this).parent().parent().data(),1);
+		console.log(annuaire)
 
-	$(this).parent().parent().remove();
 
-});
+	})
+});	
+
+
+// $("tbody").delegate("#delete","click",function(){
+
+// 	$("#dataTable").DataTable().row.remove([
+// 		name,
+// 		firstname,
+// 		age,
+// 		buttDel]).draw(false);
+
+	//$(this).parent().parent().remove();
+//	annuaire.remove(identity);
+
+
+//});
 
 $(document).ready(function(){
 		$("#dataTable").DataTable();
