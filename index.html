@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="node_modules/datatables.net-dt/css/jquery.dataTables.css">
 </head>
 
 <body>
@@ -15,8 +16,8 @@
 <button class="enter" id="enter">Valider</button>
 
 
-<table class="table">
-	<thead>
+<table id="dataTable" class="table">
+	<thead >
 		<tr>
 			<th>name</th>
 			<th>firstname</th>
@@ -24,20 +25,14 @@
 			<th></th>
 		</tr>	
 	</thead>
-	<tbody>
-		<tr class="fiche">
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+	<tbody >
+		
 	</tbody>
 
 </table>
 
-
-
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
+<script type="text/javascript" src="node_modules/datatables.net/js/jquery.dataTables.js"></script>
 </html>
